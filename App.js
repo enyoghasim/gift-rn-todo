@@ -3,19 +3,25 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const Stack = createNativeStackNavigator();
+//<=======>//
+import Home from "./src/views/home";
+//<=======>//
 
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Move"
-        onPress={() => navigation.navigate("Details")}
-      ></Button>
-    </View>
-  );
-}
+// onPress={() => {
+//   /* 1. Navigate to the Details route with params */
+//   navigation.navigate('Details', {
+//     itemId: 86,
+//     otherParam: 'anything you want here',
+//   });
+// }}
+
+// navigating with params
+
+// function DetailsScreen({ route, navigation }) {
+//   /* 2. Get the param */
+//   const { itemId, otherParam } = route.params;
+
+const Stack = createNativeStackNavigator();
 
 function DetailsScreen() {
   return (
@@ -35,8 +41,8 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={HomeScreen}
-          options={{ title: "Overview" }}
+          component={Home}
+          options={{ title: "Todos" }}
         />
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
