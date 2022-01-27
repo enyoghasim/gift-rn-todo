@@ -51,7 +51,9 @@ const Home = ({ navigation, route }) => {
       <View style={styles.todosList}>
         {todos.map((item, index) => (
           <View key={index} style={styles.todosListItem}>
-            <Text>{item.title}</Text>
+            <Text style={item.completed ? styles.todoListTitleCompleted : {}}>
+              {item.title}
+            </Text>
             <Switch
               trackColor={{ false: "#767577", true: "#81b0ff" }}
               thumbColor={true ? "#f5dd4b" : "#f4f3f4"}
