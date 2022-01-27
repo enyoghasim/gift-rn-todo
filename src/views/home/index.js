@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { View, Text, Button, TextInput, Switch, Alert } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  TextInput,
+  Switch,
+  Alert,
+  Vibration,
+} from "react-native";
 
 import styles from "./style";
 import React from "react";
@@ -22,6 +30,20 @@ const Home = ({ navigation, route }) => {
 
   const addTodo = () => {
     if (inputText.trim() === "") {
+      const ONE_SECOND_IN_MS = 50;
+
+      const PATTERN = [
+        1 * ONE_SECOND_IN_MS,
+        2 * ONE_SECOND_IN_MS,
+        3 * ONE_SECOND_IN_MS,
+      ];
+
+      const PATTERN_DESC =
+        Platform.OS === "android"
+          ? "wait 1s, vibrate 2s, wait 3s"
+          : "wait 1s, vibrate, wait 2s, vibrate, wait 3s";
+
+      Vibration.vibrate(10 * ONE_SECOND_IN_MS);
       Alert.alert("Error", "Please enter a todo");
       return;
     }
