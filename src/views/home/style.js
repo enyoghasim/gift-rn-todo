@@ -22,5 +22,11 @@ export default StyleSheet.create({
     marginTop: 3,
   },
   todosList: {},
-  todosListItem: {},
+  todosListItem: {
+    // flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    // width: "100%",
+  },
 });
