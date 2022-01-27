@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, Button, TextInput, Switch } from "react-native";
+import { View, Text, Button, TextInput, Switch, Alert } from "react-native";
 
 import styles from "./style";
 import React from "react";
@@ -22,6 +22,7 @@ const Home = ({ navigation, route }) => {
 
   const addTodo = () => {
     if (inputText.trim() === "") {
+      Alert.alert("Error", "Please enter a todo");
       return;
     }
     const newTodo = {
