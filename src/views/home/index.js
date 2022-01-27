@@ -7,6 +7,7 @@ import {
   Switch,
   Alert,
   Vibration,
+  ScrollView,
 } from "react-native";
 
 import styles from "./style";
@@ -71,22 +72,24 @@ const Home = ({ navigation, route }) => {
           <Button style={styles.button} title="Add" onPress={addTodo}></Button>
         </View>
       </View>
-      <View style={styles.todosList}>
-        {todos.map((item, index) => (
-          <View key={index} style={styles.todosListItem}>
-            <Text style={item.completed ? styles.todoListTitleCompleted : {}}>
-              {item.title}
-            </Text>
-            <Switch
-              trackColor={{ false: "#767577", true: "#81b0ff" }}
-              thumbColor={true ? "#f5dd4b" : "#f4f3f4"}
-              ios_backgroundColor="#3e3e3e"
-              value={item.completed}
-              onChange={() => editTodoCompleted(item.id)}
-            />
-          </View>
-        ))}
-      </View>
+      <ScrollView>
+        <View style={styles.todosList}>
+          {todos.map((item, index) => (
+            <View key={index} style={styles.todosListItem}>
+              <Text style={item.completed ? styles.todoListTitleCompleted : {}}>
+                {item.title}
+              </Text>
+              <Switch
+                trackColor={{ false: "#767577", true: "#81b0ff" }}
+                thumbColor={true ? "#f5dd4b" : "#f4f3f4"}
+                ios_backgroundColor="#3e3e3e"
+                value={item.completed}
+                onChange={() => editTodoCompleted(item.id)}
+              />
+            </View>
+          ))}
+        </View>
+      </ScrollView>
       {/* <Checkbox />
       <Checkbox />
       <Checkbox /> */}
