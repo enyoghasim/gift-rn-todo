@@ -21,6 +21,9 @@ const Home = ({ navigation, route }) => {
   };
 
   const addTodo = () => {
+    if (inputText.trim() === "") {
+      return;
+    }
     const newTodo = {
       title: inputText,
       completed: false,
